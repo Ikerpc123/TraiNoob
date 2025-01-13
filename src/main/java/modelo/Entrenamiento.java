@@ -55,6 +55,61 @@ public class Entrenamiento {
     }
 
     // Getters y Setters
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public Date getFecha() {
+		return fecha;
+	}
+	
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public Entrenador getEntrenador() {
+		return entrenador;
+	}
+	
+	public void setEntrenador(Entrenador entrenador) {
+		this.entrenador = entrenador;
+	}
+	
+	public List<Jugador> getJugadores() {
+		return jugadores;
+	}
+	
+	public void setJugadores(List<Jugador> jugadores) {
+		this.jugadores = jugadores;
+	}
+	
+	public List<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+	
+	public void setEjercicios(List<Ejercicio> ejercicios) {
+		this.ejercicios = ejercicios;
+	}
 }
 
 

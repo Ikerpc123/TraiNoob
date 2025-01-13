@@ -36,5 +36,37 @@ public class Entrenador {
     }
 
     // Getters y Setters
+    
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public List<Jugador> getEquipo() {
+		return equipo;
+	}
+	
+	public void setEquipo(List<Jugador> equipo) {
+		this.equipo = equipo;
+	}
+	
+	public List<Entrenamiento> getEntrenamientos() {
+		return entrenamientos;
+	}
+	
+	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
+		this.entrenamientos = entrenamientos;
+	}
 }
 

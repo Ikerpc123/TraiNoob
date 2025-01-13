@@ -34,5 +34,44 @@ public class Progreso {
     }
 
     // Getters y Setters
+    public int getId() {
+    	return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+	public Jugador getJugador() {
+		return jugador;
+	}
+	
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+	
+	public Entrenamiento getEntrenamiento() {
+		return entrenamiento;
+	}
+	
+	public void setEntrenamiento(Entrenamiento entrenamiento) {
+		this.entrenamiento = entrenamiento;
+	}
+	
+	public int getPuntuacion() {
+		return puntuacion;
+	}
+	
+	public void setPuntuacion(int puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+	
+	public String getComentario() {
+		return comentario;
+	}
+	
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
 }
 
