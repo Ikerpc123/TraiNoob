@@ -1,0 +1,165 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y tipografía general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Encabezado */
+header {
+    background-color: #1E3A8A; /* Azul oscuro */
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+nav ul {
+    text-align: center;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FF6600; /* Naranja */
+}
+
+/* Sección de introducción */
+.intro {
+    text-align: center;
+    background-color: #FFFFFF;
+    padding: 50px 0;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    color: #1E3A8A;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Sección de características */
+.features {
+    background-color: #FFFFFF;
+    padding: 50px 0;
+}
+
+.features h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #1E3A8A;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.feature-item .icon {
+    flex: 1;
+}
+
+.feature-item .icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.feature-item .feature-text {
+    flex: 3;
+    padding-left: 20px;
+}
+
+.feature-item h3 {
+    color: #1E3A8A;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: #666;
+}
+
+/* Botón de llamada a la acción */
+.call-to-action {
+    background-color: #FF6600; /* Naranja */
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.call-to-action h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.call-to-action p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.call-to-action .cta-button {
+    background-color: #FFFFFF;
+    color: #FF6600; /* Naranja */
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #FF6600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.call-to-action .cta-button:hover {
+    background-color: #FF4500; /* Naranja más oscuro */
+    color: white;
+}
+
+/* Pie de página */
+footer {
+    background-color: #1E3A8A; /* Azul oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+img{
+    width: 100px;
+    height: auto;
+}
