@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication(scanBasePackages = {"com.ikerpc123.trainoob", "com/ikerpc123/controlador"})
-@EntityScan(basePackages = "com/ikerpc123/modelo")
 public class TrainoobApplication {
 	
 	@Bean
