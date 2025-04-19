@@ -66,5 +66,15 @@ public class Entrenador {
 	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
 		this.entrenamientos = entrenamientos;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 }
 

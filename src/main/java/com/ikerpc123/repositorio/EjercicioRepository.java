@@ -1,5 +1,6 @@
 package com.ikerpc123.repositorio;
 
-public class EjercicioRepository {
 
+public class EjercicioRepository {
 }
+

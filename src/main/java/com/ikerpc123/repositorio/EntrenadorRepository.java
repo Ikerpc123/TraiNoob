@@ -1,5 +1,10 @@
 package com.ikerpc123.repositorio;
 
-public class EntrenadorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import com.ikerpc123.modelo.Entrenador;
+
+@Repository
+public interface EntrenadorRepository extends JpaRepository<Entrenador, Integer> {
 }
