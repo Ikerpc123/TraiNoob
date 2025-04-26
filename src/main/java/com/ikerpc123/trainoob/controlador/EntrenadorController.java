@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,8 @@ import com.ikerpc123.trainoob.servicio.UsuarioService;
 @Controller
 public class EntrenadorController {
 	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
 	@Autowired
 	EntrenadorService entrenadorService;
 	@Autowired
@@ -52,12 +55,20 @@ public class EntrenadorController {
 	        model.addAttribute("error", "Ingrese un nombre válido. (Sin números ni caracteres especiales)");
 	        return "registro";
 	    }
+	    
+	    // Encriptar la contraseña antes de guardarla
+        String passwordEncriptada = passwordEncoder.encode(password);
 
 	    // Validaciones correctas: registrar
-	    Usuario nuevoUsuario = usuarioService.crearUsuario(nombre, email, password, "ENTRENADOR");
+	    Usuario nuevoUsuario = usuarioService.crearUsuario(nombre, email, passwordEncriptada, "ENTRENADOR");
 	    entrenadorService.registrarEntrenador(nuevoUsuario);
 
 	    return "redirect:/login";
 	}
+	
+	@GetMapping("/menuEntrenador")
+    public String menuEntrenador() {
+        return "menuEntrenador";
+    }
 
 }
