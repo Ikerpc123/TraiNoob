@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal - TraiNoob</title>
+    <link rel="stylesheet" href="/resources/static/css/menuEntrenador.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🏀 TraiNoob</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/login}">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="menu-container">
+        <h2>Menú Principal</h2>
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <h3>Gestión de Entrenamientos</h3>
+                <ul>
+                    <li><a th:href="@{/entrenamientos/crear}">Crear Entrenamiento</a></li>
+                    <li><a th:href="@{/entrenamientos/modificar}">Modificar/Eliminar Entrenamiento</a></li>
+                    <li><a th:href="@{/entrenamientos/calendario}">Programar en Calendario</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Gestión de Ejercicios</h3>
+                <ul>
+                    <li><a th:href="@{/ejercicios/crear}">Crear Ejercicio</a></li>
+                    <li><a th:href="@{/ejercicios/biblioteca}">Biblioteca de Ejercicios</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Gestión de Jugadores</h3>
+                <ul>
+                    <li><a th:href="@{/jugadores/crear}">Crear Perfil de Jugador</a></li>
+                    <li><a th:href="@{/jugadores/asignar}">Asignar a Grupo</a></li>
+                    <li><a th:href="@{/jugadores/progreso}">Registrar Progreso</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Seguimiento de Rendimiento</h3>
+                <ul>
+                    <li><a th:href="@{/estadisticas/evolucion}">Ver Estadísticas de Jugadores</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Exportación e Importación</h3>
+                <ul>
+                    <li><a th:href="@{/exportar/pdf}">Exportar Sesiones</a></li>
+                    <li><a th:href="@{/importar/plantillas}">Importar Plantillas</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Notificaciones y Recordatorios</h3>
+                <ul>
+                    <li><a th:href="@{/notificaciones/recordatorios}">Ver Recordatorios</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 TraiNoob | Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

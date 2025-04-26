@@ -9,9 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "com.ikerpc123.repositorio")
-@EntityScan(basePackages = "com.ikerpc123.modelo")
-@ComponentScan(basePackages = "com.ikerpc123")
 public class TrainoobApplication {
 	
 	@Bean
