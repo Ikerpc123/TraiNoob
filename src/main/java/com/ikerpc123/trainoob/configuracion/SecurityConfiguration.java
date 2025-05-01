@@ -22,7 +22,7 @@ public class SecurityConfiguration {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/registroEntrenador", "/registroJugador", "/css/**", "/js/**", "/media/**").permitAll()
+                .requestMatchers("/index", "/login", "/registroEntrenador", "/registroJugador", "/css/**", "/js/**", "/media/**").permitAll()
                 .requestMatchers("/menuEntrenador/**").hasRole("ENTRENADOR")
                 .requestMatchers("/menuJugador/**").hasRole("JUGADOR")
                 .anyRequest().authenticated()

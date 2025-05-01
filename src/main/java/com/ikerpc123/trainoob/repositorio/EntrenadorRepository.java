@@ -7,4 +7,6 @@ import com.ikerpc123.trainoob.modelo.Entrenador;
 
 @Repository
 public interface EntrenadorRepository extends JpaRepository<Entrenador, Integer> {
+
+	Entrenador findByUsuarioEmail(String email);
 }

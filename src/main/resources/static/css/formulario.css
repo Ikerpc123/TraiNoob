@@ -1,44 +1,92 @@
-.form-container {
-    background-color: white;
-    width: 60%;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 10px;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.form-container h2 {
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+header a {
+    color: #FF6600;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #ffffff;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+form h2 {
     color: #1E3A8A;
-    margin-bottom: 20px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     color: #333;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
 }
 
 .form-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
     background-color: #1E3A8A;
     color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .form-group button:hover {

@@ -1,5 +1,9 @@
 package com.ikerpc123.trainoob.servicio;
 
-public class EntrenamientoService {
+import com.ikerpc123.trainoob.modelo.Entrenamiento;
+
+public interface EntrenamientoService {
+
+	Entrenamiento guardarEntrenamiento(Entrenamiento entrenamiento);
 
 }

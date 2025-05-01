@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Entrenamiento</title>
+    <link rel="stylesheet" href="/css/formulario.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🏀 Crear Entrenamiento</h1>
+            <a href="/menuEntrenador">Volver al Menú</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <form action="#" th:action="@{/entrenador/crear-entrenamiento}" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Entrenamiento</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea name="descripcion" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Guardar Entrenamiento</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
