@@ -3,6 +3,8 @@ package com.ikerpc123.trainoob.modelo;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +24,8 @@ public class Entrenamiento {
     private int id;
 
     private String nombre;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
     private String descripcion;
 

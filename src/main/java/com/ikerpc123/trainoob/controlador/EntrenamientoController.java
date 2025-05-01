@@ -1,6 +1,7 @@
 package com.ikerpc123.trainoob.controlador;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -9,6 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,4 +59,47 @@ public class EntrenamientoController {
 
         return "redirect:/menuEntrenador";
     }
+    
+    @GetMapping("/entrenamientos")
+    public String verEntrenamientos(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName();
+
+        Entrenador entrenador = entrenadorRepository.findByUsuarioEmail(email);
+        if (entrenador == null) return "redirect:/login";
+
+        List<Entrenamiento> entrenamientos = entrenamientoService.obtenerEntrenamientosPorEntrenador(entrenador.getId());
+        model.addAttribute("entrenamientos", entrenamientos);
+
+        return "listarEntrenamientos";
+    }
+    
+    @GetMapping("/eliminar-entrenamiento/{id}")
+    public String eliminarEntrenamiento(@PathVariable int id) {
+        entrenamientoService.eliminarEntrenamientoPorId(id);
+        return "redirect:/entrenador/entrenamientos";
+    }
+    
+    @GetMapping("/editar-entrenamiento/{id}")
+    public String mostrarFormularioEdicion(@PathVariable int id, Model model) {
+        Entrenamiento entrenamiento = entrenamientoService.obtenerPorId(id);
+        model.addAttribute("entrenamiento", entrenamiento);
+        return "editarEntrenamiento";
+    }
+
+    @PostMapping("/editar-entrenamiento")
+    public String actualizarEntrenamiento(@ModelAttribute("entrenamiento") Entrenamiento entrenamiento) {
+        Entrenamiento original = entrenamientoService.obtenerPorId(entrenamiento.getId());
+
+        original.setNombre(entrenamiento.getNombre());
+        original.setFecha(entrenamiento.getFecha());
+        original.setDescripcion(entrenamiento.getDescripcion());
+
+        entrenamientoService.guardarEntrenamiento(original);
+
+        return "redirect:/entrenador/entrenamientos";
+    }
+
+
+
 }

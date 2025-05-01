@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Entrenamientos</title>
+    <link rel="stylesheet" href="/css/listarEntrenamientos.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>📋 Mis Entrenamientos</h1>
+        <a href="/menuEntrenador">Volver al Menú</a>
+    </div>
+</header>
+
+<main>
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entrenamiento : ${entrenamientos}">
+                    <td th:text="${entrenamiento.nombre}"></td>
+                    <td th:text="${#dates.format(entrenamiento.fecha, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${entrenamiento.descripcion}"></td>
+                    <td class="actions">
+                        <a th:href="@{'/entrenador/editar-entrenamiento/' + ${entrenamiento.id}}" class="edit-btn">Modificar</a>
+                        <a th:href="@{'/entrenador/eliminar-entrenamiento/' + ${entrenamiento.id}}" class="delete-btn"
+                           onclick="return confirm('¿Estás seguro de que quieres eliminar este entrenamiento?');">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Entrenamiento</title>
+    <link rel="stylesheet" href="/css/formulario.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>✏️ Editar Entrenamiento</h1>
+        <a href="/entrenador/entrenamientos">Volver</a>
+    </div>
+</header>
+
+<main>
+    <div class="form-container">
+        <form th:action="@{/entrenador/editar-entrenamiento}" method="post" th:object="${entrenamiento}">
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" th:field="*{nombre}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" th:field="*{fecha}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea th:field="*{descripcion}" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>
