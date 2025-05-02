@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Jugador</title>
+    <link rel="stylesheet" href="/css/formulario.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🎽 Registro de Jugador</h1>
+        <a href="/">Volver</a>
+    </div>
+</header>
+
+<main>
+    <div class="form-container">
+        <form action="#" th:action="@{/registroJugador}" method="post">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="number" name="edad" required>
+            </div>
+
+            <div class="form-group">
+                <label>Categoría</label>
+                <input type="text" name="categoria" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Entrenador Asignado</label>
+                <select name="entrenadorId" required>
+                    <option value="">-- Selecciona un entrenador --</option>
+                    <option th:each="e : ${entrenadores}" th:value="${e.id}" th:text="${e.nombre}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

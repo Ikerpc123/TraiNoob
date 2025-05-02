@@ -1,0 +1,106 @@
+/* General */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header a {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    color: #FFCC00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Main Content */
+.menu-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.menu-container h2 {
+    font-size: 1.8rem;
+    color: #1E3A8A;
+    margin-bottom: 30px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.2s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item h3 {
+    color: #1E3A8A;
+    margin-bottom: 15px;
+}
+
+.menu-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item ul li {
+    margin: 12px 0;
+}
+
+.menu-item ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu-item ul li a:hover {
+    color: #FF6600;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header a {
+        font-size: 0.9rem;
+        top: 20px;
+        right: 15px;
+    }
+
+    .menu-container h2 {
+        font-size: 1.5rem;
+    }
+}
