@@ -20,6 +20,7 @@ public class Ejercicio {
     private String nombre;
     private String descripcion;
     private int duracion;
+    private String imagenUrl;
 
     @ManyToMany(mappedBy = "ejercicios")
     private List<Entrenamiento> entrenamientos;
@@ -64,6 +65,14 @@ public class Ejercicio {
 		this.duracion = duracion;
 	}
 	
+	public String getImagenUrl() {
+		return imagenUrl;
+	}
+
+	public void setImagenUrl(String imagenUrl) {
+		this.imagenUrl = imagenUrl;
+	}
+
 	public List<Entrenamiento> getEntrenamientos() {
 		return entrenamientos;
 	}

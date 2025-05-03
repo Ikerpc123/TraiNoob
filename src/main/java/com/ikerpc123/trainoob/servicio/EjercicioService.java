@@ -1,5 +1,12 @@
 package com.ikerpc123.trainoob.servicio;
 
-public class EjercicioService {
+import java.util.List;
+
+import com.ikerpc123.trainoob.modelo.Ejercicio;
+
+public interface EjercicioService {
+
+	List<Ejercicio> obtenerTodos();
+
 
 }
