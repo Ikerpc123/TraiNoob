@@ -10,5 +10,7 @@ public interface EjercicioService {
 
 	Ejercicio guardar(Ejercicio ejercicio);
 
+	List<Ejercicio> buscarPorIds(List<Integer> ejercicioIds);
+
 
 }

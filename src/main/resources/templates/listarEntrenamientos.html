@@ -15,28 +15,38 @@
 
 <main>
     <div class="content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Fecha</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="entrenamiento : ${entrenamientos}">
-                    <td th:text="${entrenamiento.nombre}"></td>
-                    <td th:text="${#dates.format(entrenamiento.fecha, 'dd/MM/yyyy')}"></td>
-                    <td th:text="${entrenamiento.descripcion}"></td>
-                    <td class="actions">
-                        <a th:href="@{'/entrenador/editar-entrenamiento/' + ${entrenamiento.id}}" class="edit-btn">Modificar</a>
-                        <a th:href="@{'/entrenador/eliminar-entrenamiento/' + ${entrenamiento.id}}" class="delete-btn"
-                           onclick="return confirm('¿Estás seguro de que quieres eliminar este entrenamiento?');">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+        <!-- ✅ Si hay entrenamientos, muestra la tabla -->
+        <div th:if="${entrenamientos != null and !entrenamientos.isEmpty()}">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="entrenamiento : ${entrenamientos}">
+                        <td th:text="${entrenamiento.nombre}"></td>
+                        <td th:text="${#dates.format(entrenamiento.fecha, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${entrenamiento.descripcion}"></td>
+                        <td class="actions">
+                            <a th:href="@{'/entrenador/editar-entrenamiento/' + ${entrenamiento.id}}" class="edit-btn">Modificar</a>
+                            <a th:href="@{'/entrenador/eliminar-entrenamiento/' + ${entrenamiento.id}}" class="delete-btn"
+                               onclick="return confirm('¿Estás seguro de que quieres eliminar este entrenamiento?');">Eliminar</a>
+                            <a th:href="@{'/entrenador/asignar-ejercicios/' + ${entrenamiento.id}}" class="edit-btn">Asignar ejercicios</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${entrenamientos == null or entrenamientos.isEmpty()}" style="text-align:center; margin-top:30px;">
+            <p style="color: gray; font-size: 1.2rem;">⚠️ No tienes entrenamientos registrados aún.</p>
+        </div>
+
     </div>
 </main>
 </body>

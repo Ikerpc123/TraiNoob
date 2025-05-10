@@ -1,5 +1,7 @@
 package com.ikerpc123.trainoob.servicioImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -47,4 +49,9 @@ public class JugadorServImpl implements JugadorService {
     public Jugador guardarJugador(Jugador jugador) {
         return jugadorRepo.save(jugador);
     }
+
+	@Override
+	public List<Jugador> findByEntrenador(Entrenador entrenador) {
+		return jugadorRepo.findByEntrenador(entrenador);
+	}
 }

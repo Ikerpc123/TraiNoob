@@ -92,3 +92,21 @@ form h2 {
 .form-group button:hover {
     background-color: #FF6600;
 }
+
+.alert-info {
+    background-color: #e0f0ff;
+    border-left: 5px solid #007bff;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    border-radius: 5px;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffae00;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    border-radius: 5px;
+}

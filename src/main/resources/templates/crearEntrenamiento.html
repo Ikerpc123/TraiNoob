@@ -12,6 +12,14 @@
             <a href="/menuEntrenador">Volver al Menú</a>
         </div>
     </header>
+    
+	<div class="alert-info" th:if="${jugadorCount > 0}">
+	    ⚠ Este entrenamiento se asignará automáticamente a <strong th:text="${jugadorCount}"></strong> jugador(es) bajo tu supervisión.
+	</div>
+	
+	<div class="alert-warning" th:if="${jugadorCount == 0}">
+	    ⚠ Actualmente no tienes jugadores registrados. El entrenamiento no se asignará a nadie.
+	</div>
 
     <main>
         <div class="form-container">

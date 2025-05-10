@@ -1,5 +1,7 @@
 package com.ikerpc123.trainoob.servicioImpl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,14 @@ public class UsuarioServImpl implements UsuarioService {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setEmail(email);
-        usuario.setContrasena(password); // En producción, cifrar con BCrypt
+        usuario.setContrasena(password);
         usuario.setRol(rol);
         return usuarioRepository.save(usuario);
     }
+
+	@Override
+	public  Optional<Usuario> findByEmail(String email) {
+		return usuarioRepository.findByEmail(email);
+	}
 }
 

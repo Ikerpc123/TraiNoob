@@ -24,4 +24,9 @@ public class EjercicioServImpl implements EjercicioService {
     public Ejercicio guardar(Ejercicio ejercicio) {
         return ejercicioRepo.save(ejercicio);
     }
+
+	@Override
+	public List<Ejercicio> buscarPorIds(List<Integer> ids) {
+		return ejercicioRepo.findAllById(ids);
+	}
 }

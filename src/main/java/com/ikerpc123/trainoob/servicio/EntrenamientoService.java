@@ -1,6 +1,7 @@
 package com.ikerpc123.trainoob.servicio;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.ikerpc123.trainoob.modelo.Entrenamiento;
 
@@ -13,6 +14,5 @@ public interface EntrenamientoService {
 	void eliminarEntrenamientoPorId(int id);
 
 	Entrenamiento obtenerPorId(int id);
-
 
 }
