@@ -17,6 +17,11 @@ public class EjercicioServImpl implements EjercicioService {
 
     @Override
     public List<Ejercicio> obtenerTodos() {
-        return ejercicioRepo.findAll(); // ← Aquí se obtiene todo desde la BBDD
+        return ejercicioRepo.findAll();
+    }
+    
+    @Override
+    public Ejercicio guardar(Ejercicio ejercicio) {
+        return ejercicioRepo.save(ejercicio);
     }
 }

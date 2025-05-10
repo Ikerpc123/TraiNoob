@@ -8,5 +8,7 @@ public interface EjercicioService {
 
 	List<Ejercicio> obtenerTodos();
 
+	Ejercicio guardar(Ejercicio ejercicio);
+
 
 }
