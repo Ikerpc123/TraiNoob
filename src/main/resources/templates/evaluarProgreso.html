@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluar Progreso</title>
+    <link rel="stylesheet" href="/css/formulario.css">
+</head>
+<body>
+<header>
+    <h1 th:text="'Evaluar progreso para: ' + ${entrenamiento.nombre}"></h1>
+</header>
+
+<main>
+    <div class="form-container">
+        <form th:action="@{/entrenador/evaluar-progreso}" method="post">
+            <input type="hidden" name="entrenamientoId" th:value="${entrenamiento.id}"/>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jugador</th>
+                        <th>Puntuación</th>
+                        <th>Comentario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="jugador : ${entrenamiento.jugadores}">
+                        <td>
+                            <span th:text="${jugador.nombre}"></span>
+                            <input type="hidden" name="jugadorIds" th:value="${jugador.id}"/>
+                        </td>
+                        <td>
+                            <input type="number" name="puntuaciones" min="0" max="10" required/>
+                        </td>
+                        <td>
+                            <input type="text" name="comentarios" required/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <button type="submit">Guardar Evaluaciones</button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

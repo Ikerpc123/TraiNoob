@@ -37,6 +37,7 @@
                             <a th:href="@{'/entrenador/eliminar-entrenamiento/' + ${entrenamiento.id}}" class="delete-btn"
                                onclick="return confirm('¿Estás seguro de que quieres eliminar este entrenamiento?');">Eliminar</a>
                             <a th:href="@{'/entrenador/asignar-ejercicios/' + ${entrenamiento.id}}" class="edit-btn">Asignar ejercicios</a>
+                            <a th:href="@{'/entrenador/evaluar-progreso/' + ${entrenamiento.id}}" class="edit-btn">📝 Evaluar progreso</a>
                         </td>
                     </tr>
                 </tbody>
