@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Asignar Ejercicios</title>
-    <link rel="stylesheet" href="/css/formulario.css">
+    <link rel="stylesheet" href="/css/asignarEjercicios.css">
 </head>
 <body>
 
 <header>
-    <h1>Asignar ejercicios a: <span th:text="${entrenamiento.nombre}"></span></h1>
+    <div class="header-container">
+        <h1>Asignar ejercicios a: <span th:text="${entrenamiento.nombre}"></span></h1>
+        <a href="/entrenador/entrenamientos" class="back-button">Volver</a>
+    </div>
 </header>
 
 <main>

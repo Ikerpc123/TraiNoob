@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Evaluar Progreso</title>
-    <link rel="stylesheet" href="/css/formulario.css">
+    <link rel="stylesheet" href="/css/evaluarProgreso.css">
 </head>
 <body>
 <header>
-    <h1 th:text="'Evaluar progreso para: ' + ${entrenamiento.nombre}"></h1>
+    <div class="header-container">
+        <h1 th:text="'Evaluar progreso para: ' + ${entrenamiento.nombre}"></h1>
+        <a href="/entrenador/entrenamientos" class="back-button">Volver</a>
+    </div>
 </header>
 
 <main>

@@ -1,124 +1,125 @@
-/* Reset de márgenes y padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fondo y tipografía general */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F5F5F5;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7fa;
+    color: #1a1a1a;
 }
 
-/* Contenedor principal */
 .container {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 0;
 }
 
-/* Encabezado */
 header {
-    background-color: #1E3A8A; /* Azul oscuro */
+    background-color: #0a2e57;
     color: white;
     padding: 20px 0;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 nav ul {
-    text-align: center;
     list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
+nav a {
     color: white;
-    font-size: 1.2rem;
     text-decoration: none;
+    font-weight: bold;
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #FF6600; /* Naranja */
+nav a:hover {
+    color: #f9a826;
 }
 
-/* Sección de introducción */
 .intro {
+    background-color: #ffffff;
+    padding: 60px 0;
     text-align: center;
-    background-color: #FFFFFF;
-    padding: 50px 0;
 }
 
 .intro h2 {
     font-size: 2rem;
-    color: #1E3A8A;
+    margin-bottom: 20px;
+    color: #0a2e57;
 }
 
 .intro p {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 10px auto;
 }
 
-/* Sección de características */
+/* Features Section */
 .features {
-    background-color: #FFFFFF;
-    padding: 50px 0;
+    background-color: #e8eff6;
+    padding: 60px 0;
 }
 
 .features h2 {
-    font-size: 2rem;
     text-align: center;
-    color: #1E3A8A;
-    margin-bottom: 30px;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #0a2e57;
 }
 
 .feature-item {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-    text-align: left;
+    flex-wrap: wrap;
 }
 
 .feature-item .icon {
-    flex: 1;
+    flex: 1 1 100px;
+    text-align: center;
 }
 
-.feature-item .icon img {
-    width: 50px;
-    height: 50px;
+.feature-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0a2e57;
 }
 
-.feature-item .feature-text {
+.feature-text {
     flex: 3;
     padding-left: 20px;
 }
 
-.feature-item h3 {
-    color: #1E3A8A;
-    font-size: 1.5rem;
+.feature-text h3 {
+    color: #0a2e57;
+    font-size: 1.3rem;
     margin-bottom: 10px;
 }
 
-.feature-item p {
-    color: #666;
-}
-
-/* Botón de llamada a la acción */
+/* Call to Action */
 .call-to-action {
-    background-color: #FF6600; /* Naranja */
+    background-color: #0a2e57;
     color: white;
+    padding: 60px 20px;
     text-align: center;
-    padding: 40px 0;
 }
 
 .call-to-action h2 {
@@ -127,39 +128,45 @@ nav ul li a:hover {
 }
 
 .call-to-action p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 
-.call-to-action .cta-button {
-    background-color: #FFFFFF;
-    color: #FF6600; /* Naranja */
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    text-decoration: none;
+.cta-button {
+    display: inline-block;
+    background-color: #f9a826;
+    color: #0a2e57;
+    padding: 12px 25px;
     border-radius: 5px;
-    border: 2px solid #FF6600;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-.call-to-action .cta-button:hover {
-    background-color: #FF4500; /* Naranja más oscuro */
-    color: white;
+.cta-button:hover {
+    background-color: #f4c048;
 }
 
-/* Pie de página */
 footer {
-    background-color: #1E3A8A; /* Azul oscuro */
+    background-color: #0a2e57;
     color: white;
-    text-align: center;
     padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
-footer p {
-    font-size: 1rem;
-}
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-img{
-    width: 100px;
-    height: auto;
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-text {
+        padding-left: 0;
+    }
 }

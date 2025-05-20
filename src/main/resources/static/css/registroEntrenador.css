@@ -29,68 +29,47 @@ header .container {
 }
 
 header h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
-header a {
-    background-color: #f9a826;
-    color: #0a2e57;
-    padding: 8px 16px;
-    border-radius: 5px;
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav a {
+    color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s;
+    transition: color 0.3s;
 }
 
-header a:hover {
-    background-color: #f7c64d;
-}
-
-.alert-info,
-.alert-warning {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 15px 20px;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.4;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.alert-info {
-    background-color: #eaf4ff;
-    color: #084298;
-    border: 1px solid #b6daff;
-}
-
-.alert-warning {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
+header nav a:hover {
+    color: #f9a826;
 }
 
 main {
     flex-grow: 1;
-    padding: 40px 20px;
+    padding: 60px 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .form-container {
     background-color: white;
     padding: 40px 30px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 500px;
     width: 100%;
-    max-width: 600px;
 }
 
-.form-container form {
-    width: 100%;
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0a2e57;
 }
 
 .form-group {
@@ -101,11 +80,9 @@ main {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
-    color: #0a2e57;
 }
 
-.form-group input,
-.form-group textarea {
+.form-group input {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
@@ -114,14 +91,9 @@ main {
     transition: border-color 0.3s;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form-group input:focus {
     border-color: #0a2e57;
     outline: none;
-}
-
-textarea {
-    resize: vertical;
 }
 
 .form-group button {
@@ -141,13 +113,10 @@ textarea {
     background-color: #083260;
 }
 
-@media (max-width: 480px) {
-    header .container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .form-container {
-        padding: 30px 20px;
-    }
+footer {
+    background-color: #0a2e57;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
 }

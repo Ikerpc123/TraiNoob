@@ -1,117 +1,155 @@
-/* guia.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #F5F5F5;
-    margin: 0;
-    padding: 0;
-    color: #333;
+    background-color: #f0f4f8;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
-    background-color: #1E3A8A;
+    background-color: #0a2e57;
     color: white;
-    padding: 20px;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
+.navbar h1 {
+    font-size: 1.5rem;
 }
 
-.navbar a:hover {
-    color: #FF6600;
+.navbar-links a {
+    color: white;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #f9a826;
 }
 
 .section {
+    flex-grow: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    justify-content: center;
+    padding: 40px 20px;
 }
 
 .login-card {
-    background-color: #ffffff;
-    padding: 40px;
+    background-color: white;
+    padding: 2.5rem;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
     max-width: 400px;
-    text-align: center;
+    width: 100%;
 }
 
 .login-card h2 {
-    color: #1E3A8A;
-    margin-bottom: 20px;
-}
-
-.login-card form {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 1.5rem;
+    color: #0a2e57;
+    text-align: center;
 }
 
 .login-card label {
-    text-align: left;
-    margin: 10px 0 5px;
+    display: block;
+    margin-bottom: 0.5rem;
     font-weight: bold;
 }
 
 .login-card input {
+    width: 100%;
     padding: 10px;
+    margin-bottom: 1.2rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 15px;
     font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.login-card input:focus {
+    border-color: #0a2e57;
+    outline: none;
 }
 
 .login-card button {
-    background-color: #FF6600;
+    width: 100%;
+    background-color: #0a2e57;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
+    font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .login-card button:hover {
-    background-color: #FF4500;
+    background-color: #083260;
 }
 
 .login-card p {
-    margin-top: 15px;
-    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
 }
 
-.login-card a {
-    color: #1E3A8A;
+.login-card p a {
+    color: #0a2e57;
     text-decoration: none;
+    font-weight: bold;
 }
 
-.login-card a:hover {
+.login-card p a:hover {
     text-decoration: underline;
 }
 
 .footer {
-    background-color: #1E3A8A;
+    background-color: #0a2e57;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 1rem 0;
     font-size: 0.9rem;
 }
 
-.social-links a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
+.footer .social-links {
+    margin-top: 0.5rem;
 }
 
-.social-links a:hover {
-    color: #FF6600;
+.footer .social-links a {
+    margin: 0 10px;
+    color: #f9a826;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer .social-links a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        margin-top: 10px;
+    }
+
+    .login-card {
+        padding: 2rem;
+    }
 }
