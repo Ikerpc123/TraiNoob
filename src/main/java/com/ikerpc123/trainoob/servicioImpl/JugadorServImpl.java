@@ -1,6 +1,7 @@
 package com.ikerpc123.trainoob.servicioImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -51,7 +52,13 @@ public class JugadorServImpl implements JugadorService {
     }
 
 	@Override
-	public List<Jugador> findByEntrenador(Entrenador entrenador) {
+	public List<Jugador> buscarPorEntrenador(Entrenador entrenador) {
 		return jugadorRepo.findByEntrenador(entrenador);
 	}
+	
+	@Override
+	public Jugador buscarPorUsuario(Optional<Usuario> usuario) {
+		return jugadorRepo.findByUsuario(usuario);
+	}
+	
 }

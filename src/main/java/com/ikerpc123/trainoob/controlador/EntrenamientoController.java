@@ -53,7 +53,7 @@ public class EntrenamientoController {
         Optional<Usuario> usuario = usuarioService.findByEmail(email);
         Entrenador entrenador = entrenadorRepository.findByUsuarioEmail(email);
         
-        List<Jugador> jugadores = jugadorService.findByEntrenador(entrenador);
+        List<Jugador> jugadores = jugadorService.buscarPorEntrenador(entrenador);
         
         model.addAttribute("entrenamiento", new Entrenamiento());
         model.addAttribute("jugadorCount", jugadores.size());
@@ -72,7 +72,7 @@ public class EntrenamientoController {
         Entrenador entrenador = entrenadorRepository.findByUsuarioEmail(email);
         if (entrenador == null) return "redirect:/login";
         
-        List<Jugador> jugadoresDelEntrenador = jugadorService.findByEntrenador(entrenador);
+        List<Jugador> jugadoresDelEntrenador = jugadorService.buscarPorEntrenador(entrenador);
 
         Entrenamiento entrenamiento = new Entrenamiento();
         entrenamiento.setNombre(nombre);
@@ -123,7 +123,7 @@ public class EntrenamientoController {
 
         entrenamientoService.guardarEntrenamiento(original);
 
-        return "redirect:/entrenador/entrenamientos";
+        return "redirect:/entrenador/entrenamientos?success3=true";
     }
 
     @GetMapping("/asignar-ejercicios/{id}")
@@ -142,7 +142,7 @@ public class EntrenamientoController {
         List<Ejercicio> ejerciciosSeleccionados = ejercicioService.buscarPorIds(ejercicioIds);
         entrenamiento.setEjercicios(ejerciciosSeleccionados);
         entrenamientoService.guardarEntrenamiento(entrenamiento);
-        return "redirect:/entrenador/entrenamientos";
+        return "redirect:/entrenador/entrenamientos?success1=true";
     }
 
 }

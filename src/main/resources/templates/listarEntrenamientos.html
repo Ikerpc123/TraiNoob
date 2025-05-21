@@ -33,10 +33,10 @@
                         <td th:text="${entrenamiento.descripcion}"></td>
                         <td class="actions">
                             <a th:href="@{'/entrenador/editar-entrenamiento/' + ${entrenamiento.id}}" class="edit-btn">Modificar</a>
+                            <a th:href="@{'/entrenador/asignar-ejercicios/' + ${entrenamiento.id}}" class="edit-btn">Asignar ejercicios</a>
+                            <a th:href="@{'/entrenador/evaluar-progreso/' + ${entrenamiento.id}}" class="edit-btn">Evaluar progreso</a>
                             <a th:href="@{'/entrenador/eliminar-entrenamiento/' + ${entrenamiento.id}}" class="delete-btn"
                                onclick="return confirm('¿Estás seguro de que quieres eliminar este entrenamiento?');">Eliminar</a>
-                            <a th:href="@{'/entrenador/asignar-ejercicios/' + ${entrenamiento.id}}" class="edit-btn">Asignar ejercicios</a>
-                            <a th:href="@{'/entrenador/evaluar-progreso/' + ${entrenamiento.id}}" class="edit-btn">📝 Evaluar progreso</a>
                         </td>
                     </tr>
                 </tbody>
@@ -44,9 +44,21 @@
         </div>
 
         <div th:if="${entrenamientos == null or entrenamientos.isEmpty()}" style="text-align:center; margin-top:30px;">
-            <p style="color: gray; font-size: 1.2rem;">⚠️ No tienes entrenamientos registrados aún.</p>
+            <p style="color: gray; font-size: 1.2rem;">¡No tienes entrenamientos registrados aún!</p>
         </div>
-
+        
+        <br>
+        <div th:if="${param.success1}" class="alert-success">
+		    Ejercicios guardados correctamente.
+		</div>
+        
+        <div th:if="${param.success2}" class="alert-success">
+		    Progreso guardado correctamente. 
+		</div>
+		
+		<div th:if="${param.success3}" class="alert-success">
+		    Entrenamiento modificado correctamente.
+		</div>
     </div>
 </main>
 </body>
