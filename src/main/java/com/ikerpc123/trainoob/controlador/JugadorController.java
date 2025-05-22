@@ -1,5 +1,6 @@
 package com.ikerpc123.trainoob.controlador;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ikerpc123.trainoob.modelo.Entrenador;
+import com.ikerpc123.trainoob.modelo.Entrenamiento;
 import com.ikerpc123.trainoob.modelo.Jugador;
 import com.ikerpc123.trainoob.modelo.Progreso;
 import com.ikerpc123.trainoob.modelo.Usuario;
 import com.ikerpc123.trainoob.repositorio.EntrenadorRepository;
+import com.ikerpc123.trainoob.servicio.EntrenamientoService;
 import com.ikerpc123.trainoob.servicio.JugadorService;
 import com.ikerpc123.trainoob.servicio.ProgresoService;
 import com.ikerpc123.trainoob.servicio.UsuarioService;
@@ -35,6 +38,9 @@ public class JugadorController {
 	@Autowired
     private UsuarioService usuarioService;
 
+	@Autowired
+    private EntrenamientoService entrenamientoService;
+	
     @Autowired
     private EntrenadorRepository entrenadorRepository;
 
@@ -64,8 +70,24 @@ public class JugadorController {
     }
     
     @GetMapping("/menuJugador")
-    public String menuEntrenador() {
+    public String menuEntrenador(Model model) {
+    	String email = SecurityContextHolder.getContext().getAuthentication().getName();
+    	Optional<Usuario> usuario = usuarioService.findByEmail(email);
+        Jugador jugador = jugadorService.buscarPorUsuario(usuario);
+
+        model.addAttribute("jugador", jugador);
+        model.addAttribute("entrenamientos", jugador.getEntrenamientos());
+        model.addAttribute("progresos", jugador.getProgresos());
         return "menuJugador";
+    }
+    
+    @GetMapping("/perfil")
+    public String mostrarPerfil(Model model) {
+    	String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Usuario> usuario = usuarioService.findByEmail(email);
+        Jugador jugador = jugadorService.buscarPorUsuario(usuario);
+        model.addAttribute("jugador", jugador);
+        return "perfilJugador";
     }
     
     @GetMapping("/progreso")
@@ -81,4 +103,23 @@ public class JugadorController {
         model.addAttribute("progresos", progresos);
         return "progreso";
     }
+    
+    @GetMapping("/calendario")
+    public String verCalendario(Model model) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Usuario> usuario = usuarioService.findByEmail(email);
+        
+        if (usuario.isPresent()) {
+            Jugador jugador = jugadorService.buscarPorUsuario(usuario);
+            
+            List<Entrenamiento> entrenamientos = jugador.getEntrenamientos(); 
+
+            model.addAttribute("entrenamientos", entrenamientos);
+        } else {
+            model.addAttribute("entrenamientos", Collections.emptyList());
+        }
+
+        return "calendario";
+    }
+
 }
