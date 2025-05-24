@@ -21,5 +21,11 @@ public class EntrenadorServImpl implements EntrenadorService {
         entrenador.setUsuario(usuario);
         return entrenadorRepository.save(entrenador);
     }
+    
+    @Override
+    public Entrenador findByUsuario(Usuario usuario)
+    {
+		return entrenadorRepository.findByUsuarioEmail(usuario.getEmail());
+    }
 }
 

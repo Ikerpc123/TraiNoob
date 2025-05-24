@@ -7,4 +7,7 @@ public interface EntrenadorService {
 
 	Entrenador registrarEntrenador(Usuario usuario);
 
+	Entrenador findByUsuario(Usuario usuario);
+
+
 }
