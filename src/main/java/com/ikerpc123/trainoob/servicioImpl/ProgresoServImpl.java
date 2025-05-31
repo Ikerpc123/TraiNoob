@@ -29,4 +29,5 @@ public class ProgresoServImpl implements ProgresoService{
     public List<Progreso> buscarPorEntrenamientoId(int id) {
         return progresoRepo.findByEntrenamientoId(id);
     }
+    
 }

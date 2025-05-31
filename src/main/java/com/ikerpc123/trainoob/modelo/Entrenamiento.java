@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -49,7 +50,6 @@ public class Entrenamiento {
     )
     private List<Ejercicio> ejercicios;
 
-    // Métodos adicionales
     public void asignarJugador(Jugador jugador) {
         this.jugadores.add(jugador);
     }
@@ -58,7 +58,6 @@ public class Entrenamiento {
         this.ejercicios.add(ejercicio);
     }
 
-    // Getters y Setters
 	public int getId() {
 		return id;
 	}

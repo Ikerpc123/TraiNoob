@@ -42,14 +42,15 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: #f9a826;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #f9a826;
+    color: #0a2e57;
+    background-color: #f9a826;
 }
 
 .intro {
@@ -70,7 +71,6 @@ nav a:hover {
     margin: 10px auto;
 }
 
-/* Features Section */
 .features {
     background-color: #e8eff6;
     padding: 60px 0;
@@ -91,17 +91,27 @@ nav a:hover {
 }
 
 .feature-item .icon {
-    flex: 1 1 100px;
-    text-align: center;
+	text-align: center;
+    flex-shrink: 0;
+    width:150px;
+    height: 150px;
+    border: 3px solid #0a2e57;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
 }
 
 .feature-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
     border-radius: 50%;
-    border: 3px solid #0a2e57;
 }
+
+
 
 .feature-text {
     flex: 3;
@@ -114,7 +124,6 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
-/* Call to Action */
 .call-to-action {
     background-color: #0a2e57;
     color: white;
@@ -134,8 +143,7 @@ nav a:hover {
 
 .cta-button {
     display: inline-block;
-    background-color: #f9a826;
-    color: #0a2e57;
+    color: #f9a826;
     padding: 12px 25px;
     border-radius: 5px;
     font-weight: bold;
@@ -144,7 +152,8 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #f4c048;
+    background-color: #f9a826;
+    color: #0a2e57;
 }
 
 footer {
@@ -170,3 +179,49 @@ footer {
         padding-left: 0;
     }
 }
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.logo-img {
+    height: 150px;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+}
+

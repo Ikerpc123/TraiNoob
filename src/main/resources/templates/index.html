@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container">
-            <h1>TraiNoob</h1>
-            <nav>
-                <ul>
-                    <li><a th:href="login">Iniciar Sesión</a></li>
-                    <li><a th:href="registroEntrenador">Registro Entrenador</a></li>
-                    <li><a th:href="@{/registroJugador}">Registro Jugador</a></li>
-                </ul>
-            </nav>
-        </div>
+	    <div class="container header-flex">
+	        <a href="/logout" class="logo-link" title="Cerrar sesión">
+	            <img src="/media/logo2.png" alt="TraiNoob logo" class="logo-img">
+	        </a>
+	        <span class="titulo">TraiNoob</span>
+	        <nav>
+	            <ul>
+	                <li><a th:href="@{/login}">Iniciar Sesión</a></li>
+	                <li><a th:href="@{/registroEntrenador}">Registro Entrenador</a></li>
+	                <li><a th:href="@{/registroJugador}">Registro Jugador</a></li>
+	            </ul>
+	        </nav>
+	    </div>
     </header>
 
-    <!-- Main Content -->
     <main>
         <section class="intro">
             <div class="container">
@@ -37,7 +38,7 @@
                 <h2>Características Principales</h2>
                 <div class="feature-item">
                     <div class="icon">
-                        <img src="/media/patata.jpg" alt="Entrenamientos">
+                        <img src="/media/entrenamientos.png" alt="Entrenamientos">
                     </div>
                     <div class="feature-text">
                         <h3>Gestión de Entrenamientos</h3>
@@ -46,7 +47,7 @@
                 </div>
                 <div class="feature-item">
                     <div class="icon">
-                        <img src="/media/patata.jpg" alt="Progreso">
+                        <img src="/media/progreso.png" alt="Progreso">
                     </div>
                     <div class="feature-text">
                         <h3>Seguimiento de Progreso</h3>
@@ -55,7 +56,7 @@
                 </div>
                 <div class="feature-item">
                     <div class="icon">
-                        <img src="/media/patata.jpg" alt="Equipo">
+                        <img src="/media/equipo.png" alt="Equipo">
                     </div>
                     <div class="feature-text">
                         <h3>Gestión de Jugadores</h3>
@@ -69,12 +70,12 @@
             <div class="container">
                 <h2>¡Únete a Nosotros!</h2>
                 <p>Empieza a mejorar tu equipo hoy mismo y lleva tus entrenamientos a un nivel profesional.</p>
-                <a href="login.html" class="cta-button">Iniciar Sesión</a>
+                <a th:href="registroEntrenador" class ="cta-button">Registrato Entrenador</a>
+                <a th:href="@{/registroJugador}" class ="cta-button">Registro Jugador</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 TraiNoob | Todos los derechos reservados.</p>

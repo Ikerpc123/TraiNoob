@@ -29,7 +29,8 @@ public class SecurityConfiguration {
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .loginProcessingUrl("/login") // Procesa POST /login
+                .loginProcessingUrl("/login")
+                .failureUrl("/login?error=true")
                 .successHandler(successHandler)
                 .permitAll()
             )

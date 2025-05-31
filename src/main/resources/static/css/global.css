@@ -1,0 +1,15 @@
+.logo-link {
+    display: inline-block;
+    height: 100px;
+}
+
+.logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}

@@ -8,7 +8,7 @@
 <body>
 <header>
     <div class="container">
-        <h1>📋 Mis Entrenamientos</h1>
+        <h1>Mis Entrenamientos</h1>
         <a href="/menuEntrenador">Volver al Menú</a>
     </div>
 </header>
@@ -58,6 +58,10 @@
 		
 		<div th:if="${param.success3}" class="alert-success">
 		    Entrenamiento modificado correctamente.
+		</div>
+		
+		<div th:if="${param.success4}" class="alert-success">
+		    Entrenamiento eliminado correctamente.
 		</div>
     </div>
 </main>

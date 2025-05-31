@@ -3,10 +3,13 @@ package com.ikerpc123.trainoob.controlador;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,6 +46,9 @@ public class JugadorController {
 	
     @Autowired
     private EntrenadorRepository entrenadorRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/registroJugador")
     public String mostrarFormulario(Model model) {
@@ -61,12 +67,56 @@ public class JugadorController {
 
         Entrenador entrenador = entrenadorRepository.findById(entrenadorId).orElse(null);
         if (entrenador == null) {
-            model.addAttribute("error", "Entrenador no válido");
+            model.addAttribute("error", "Entrenador no válido.");
             return "registroJugador";
         }
 
-        jugadorService.registrarJugadorConUsuario(nombre, edad, categoria, email, password, entrenador);
-        return "redirect:/login";
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern patronEmail = Pattern.compile(emailRegex);
+        Matcher validarEmail = patronEmail.matcher(email);
+        if (!validarEmail.matches()) {
+            model.addAttribute("error", "Ingrese un correo electrónico válido.");
+            model.addAttribute("entrenadores", entrenadorRepository.findAll());
+            return "registroJugador";
+        }
+
+        String nombreRegex = "^[a-zA-Z\\s]+$";
+        Pattern patronNombre = Pattern.compile(nombreRegex);
+        Matcher validarNombre = patronNombre.matcher(nombre);
+        if (!validarNombre.matches()) {
+            model.addAttribute("error", "Ingrese un nombre válido. (Sin números ni caracteres especiales)");
+            model.addAttribute("entrenadores", entrenadorRepository.findAll());
+            return "registroJugador";
+        }
+
+        if (nombre.contains(" ") || password.contains(" ")) {
+            model.addAttribute("error", "El correo y la contraseña no deben contener espacios.");
+            model.addAttribute("entrenadores", entrenadorRepository.findAll());
+            return "registroJugador";
+        }
+
+        if (edad < 5 || edad > 100) {
+            model.addAttribute("error", "Ingrese una edad válida entre 5 y 100 años.");
+            model.addAttribute("entrenadores", entrenadorRepository.findAll());
+            return "registroJugador";
+        }
+
+        if (categoria == null || categoria.trim().isEmpty()) {
+            model.addAttribute("error", "Seleccione una categoría.");
+            model.addAttribute("entrenadores", entrenadorRepository.findAll());
+            return "registroJugador";
+        }
+
+        if (usuarioService.findByEmail(email).isPresent()) {
+            model.addAttribute("error", "Este correo ya está registrado.");
+            model.addAttribute("entrenadores", entrenadorRepository.findAll());
+            return "registroJugador";
+        }
+
+        String passwordEncriptada = passwordEncoder.encode(password);
+        jugadorService.registrarJugadorConUsuario(nombre, edad, categoria, email, passwordEncriptada, entrenador);
+
+        return "redirect:/login?success2=true";
     }
     
     @GetMapping("/menuJugador")

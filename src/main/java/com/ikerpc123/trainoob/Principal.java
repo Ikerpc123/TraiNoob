@@ -10,16 +10,12 @@ public class Principal implements CommandLineRunner{
 		try {
             String url = "http://localhost:8080/index";
             
-            // Intenta abrir el navegador mediante el sistema operativo
             ProcessBuilder pb = new ProcessBuilder();
             String os = System.getProperty("os.name").toLowerCase();
             if (os.contains("win")) {
                 pb.command("cmd", "/c", "start", url);
-            } /*else if (os.contains("mac")) {
-                pb.command("open", url);
-            } else if (os.contains("nix") || os.contains("nux")) {
-                pb.command("xdg-open", url);
-            } */else {
+            }
+            else {
                 throw new UnsupportedOperationException("Sistema operativo no soportado para abrir navegadores.");
             }
             pb.start();

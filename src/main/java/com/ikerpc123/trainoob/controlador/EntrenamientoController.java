@@ -21,11 +21,14 @@ import com.ikerpc123.trainoob.modelo.Ejercicio;
 import com.ikerpc123.trainoob.modelo.Entrenador;
 import com.ikerpc123.trainoob.modelo.Entrenamiento;
 import com.ikerpc123.trainoob.modelo.Jugador;
+import com.ikerpc123.trainoob.modelo.Progreso;
 import com.ikerpc123.trainoob.modelo.Usuario;
 import com.ikerpc123.trainoob.repositorio.EntrenadorRepository;
+import com.ikerpc123.trainoob.repositorio.ProgresoRepository;
 import com.ikerpc123.trainoob.servicio.EjercicioService;
 import com.ikerpc123.trainoob.servicio.EntrenamientoService;
 import com.ikerpc123.trainoob.servicio.JugadorService;
+import com.ikerpc123.trainoob.servicio.ProgresoService;
 import com.ikerpc123.trainoob.servicio.UsuarioService;
 
 @Controller
@@ -46,6 +49,12 @@ public class EntrenamientoController {
     
     @Autowired
     private UsuarioService usuarioService;
+    
+    @Autowired
+    private ProgresoService progresoService;
+    
+    @Autowired
+    private ProgresoRepository progresoRepository;
 
     @GetMapping("/crear-entrenamiento")
     public String mostrarFormulario(Model model) {
@@ -102,8 +111,13 @@ public class EntrenamientoController {
     
     @GetMapping("/eliminar-entrenamiento/{id}")
     public String eliminarEntrenamiento(@PathVariable int id) {
+    	List<Progreso> progresos = progresoService.buscarPorEntrenamientoId(id);
+    	for(Progreso progreso : progresos)
+    	{
+    		progresoRepository.delete(progreso);
+    	}
         entrenamientoService.eliminarEntrenamientoPorId(id);
-        return "redirect:/entrenador/entrenamientos";
+        return "redirect:/entrenador/entrenamientos?success4=true";
     }
     
     @GetMapping("/editar-entrenamiento/{id}")

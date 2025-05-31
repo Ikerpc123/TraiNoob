@@ -6,22 +6,28 @@
     <meta name="description" content="Iniciar sesión en el Gestor de Entrenamientos de Baloncesto">
     <title>Iniciar Sesión | Gestor de Entrenamientos</title>
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Barra de Navegación -->
     <nav class="navbar">
         <div class="navbar-brand">
-            <h1>🏀 TraiNoob</h1>
+	        <a href="/logout" class="logo-link">
+			    <img src="/media/logo.png" alt="TraiNoob logo" class="logo-img">
+			</a>
         </div>
         <div class="navbar-links">
             <a href="/index">Inicio</a>
             <a th:href="@{/registroEntrenador}" href="registroEntrenador.html">Registrarse</a>
         </div>
     </nav>
-
-    <!-- Sección de Login -->
+	<div th:if="${param.success1}" class="alert-success">
+	    Se ha registrado un entrenador.
+	</div>
+	<div th:if="${param.success2}" class="alert-success">
+	    Se ha registrado un jugador.
+	</div>
     <section class="section">
         <div class="login-card">
             <h2>Iniciar Sesión</h2>
@@ -31,14 +37,16 @@
 
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
-
+                <div th:if="${param.error}" class="alert-error"> 
+				    Credenciales incorrectas. 
+				</div>
+				<br>
                 <button type="submit">Iniciar Sesión</button>
             </form>
             <p>¿No tienes cuenta? <a th:href="@{/registroEntrenador}" href="registroEntrenador.html">Regístrate aquí</a></p>
         </div>
     </section>
 
-    <!-- Pie de Página -->
     <footer class="footer">
         <p>&copy; 2025 Gestor de Entrenamientos. Todos los derechos reservados.</p>
         <div class="social-links">

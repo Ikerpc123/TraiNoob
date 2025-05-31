@@ -27,7 +27,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         } else if (hasRole(authorities, "ROLE_JUGADOR")) {
             response.sendRedirect("/menuJugador");
         } else {
-            response.sendRedirect("/"); // Página por defecto si no tiene rol válido
+            response.sendRedirect("/");
         }
     }
 

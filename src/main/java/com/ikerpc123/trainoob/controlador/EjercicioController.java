@@ -33,7 +33,7 @@ public class EjercicioController {
     @PostMapping("/crear-ejercicio")
     public String crearEjercicio(@ModelAttribute("ejercicio") Ejercicio ejercicio) {
         ejercicioService.guardar(ejercicio);
-        return "redirect:/entrenador/biblioteca-ejercicios";
+        return "redirect:/entrenador/biblioteca-ejercicios?success=true";
     }
 
 }

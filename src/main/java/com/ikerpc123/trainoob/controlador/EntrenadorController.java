@@ -62,22 +62,30 @@ public class EntrenadorController {
 
 	    if (!validarEmail.matches()) {
 	        model.addAttribute("error", "Ingrese un correo electrónico válido.");
-	        return "registro";
+	        return "registroEntrenador";
 	    }
 
 	    if (!validarNombre.matches()) {
 	        model.addAttribute("error", "Ingrese un nombre válido. (Sin números ni caracteres especiales)");
-	        return "registro";
+	        return "registroEntrenador";
 	    }
 	    
-	    // Encriptar la contraseña antes de guardarla
+	    if (nombre.contains(" ") || password.contains(" ")) {
+	        model.addAttribute("error", "El correo y la contraseña no deben contener espacios.");
+	        return "registroEntrenador";
+	    }
+
+	    if (usuarioService.findByEmail(email).isPresent()) {
+	        model.addAttribute("error", "Este correo ya está registrado.");
+	        return "registroEntrenador";
+	    }
+	    
         String passwordEncriptada = passwordEncoder.encode(password);
 
-	    // Validaciones correctas: registrar
 	    Usuario nuevoUsuario = usuarioService.crearUsuario(nombre, email, passwordEncriptada, "ENTRENADOR");
 	    entrenadorService.registrarEntrenador(nuevoUsuario);
 
-	    return "redirect:/login";
+	    return "redirect:/login?success1=true";
 	}
 	
 	@GetMapping("/menuEntrenador")
