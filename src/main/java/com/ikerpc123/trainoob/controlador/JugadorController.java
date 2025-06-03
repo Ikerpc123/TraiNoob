@@ -113,8 +113,7 @@ public class JugadorController {
             return "registroJugador";
         }
 
-        String passwordEncriptada = passwordEncoder.encode(password);
-        jugadorService.registrarJugadorConUsuario(nombre, edad, categoria, email, passwordEncriptada, entrenador);
+        jugadorService.registrarJugadorConUsuario(nombre, edad, categoria, email, password, entrenador);
 
         return "redirect:/login?success2=true";
     }
