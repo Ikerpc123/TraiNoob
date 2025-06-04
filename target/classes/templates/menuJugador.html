@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Jugador</title>
+    <link rel="stylesheet" href="/css/menuJugador.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>Panel del Jugador</h1>
+        <a href="/logout" class="back-button">Cerrar sesión</a>
+    </div>
+</header>
+
+<main>
+    <section class="perfil-card">
+        <h2>👤 Datos Personales</h2>
+        <hr>
+        <ul>
+            <li><strong>Nombre:</strong> <span th:text="${jugador.nombre}">Traini</span></li>
+            <li><strong>Edad:</strong> <span th:text="${jugador.edad}">14</span></li>
+            <li><strong>Categoría:</strong> <span th:text="${jugador.categoria}">Junior</span></li>
+        </ul>
+    </section>
+
+    <section class="tabla-card">
+        <h2>📋 Entrenamientos Asignados</h2>
+        <hr>
+        <table th:if="${not #lists.isEmpty(entrenamientos)}">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ent : ${entrenamientos}">
+                    <td th:text="${#dates.format(ent.fecha, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${ent.nombre}"></td>
+                    <td th:text="${ent.descripcion}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="empty" th:if="${entrenamientos.isEmpty()}">No tienes entrenamientos asignados.</p>
+    </section>
+
+    <section class="tabla-card">
+        <h2>📈 Historial de Progreso</h2>
+        <hr>
+        <table th:if="${not #lists.isEmpty(progresos)}">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Entrenamiento</th>
+                    <th>Puntuación</th>
+                    <th>Comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${progresos}">
+                    <td th:text="${#dates.format(p.entrenamiento.fecha, 'dd/MM/yyyy')}"></td>
+                    <td th:text="${p.entrenamiento.nombre}"></td>
+                    <td th:text="${p.puntuacion}"></td>
+                    <td th:text="${p.comentario}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="empty" th:if="${progresos.isEmpty()}">No tienes progresos registrados.</p>
+    </section>
+</main>
+
+</body>
+</html>

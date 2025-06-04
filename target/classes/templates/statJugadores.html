@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas de Jugadores</title>
+    <link rel="stylesheet" href="/css/evolucion.css">
+</head>
+<body>
+<header>
+    <h1>Estadísticas de Jugadores</h1>
+    <a href="/menuEntrenador">Volver al menú</a>
+</header>
+
+<main>
+    <main>
+    <div class="content">
+        <div th:each="e : ${estadisticas}" class="stat-bar-card">
+		    <div class="top-row">
+		        <h3 th:text="${e.jugador}">Jugador</h3>
+		        <span th:text="'Media: ' + ${#numbers.formatDecimal(e.promedio, 1, 2)} + '/10'">7.5/10</span>
+		    </div>
+		    <div class="progress-bar">
+		        <div class="progress-fill" th:style="'width:' + (${e.promedio} * 10) + '%'"></div>
+		    </div>
+		    <p class="comment" th:text="'🗨 ' + ${e.comentario}">Muy buen trabajo este mes</p>
+		</div>
+        <div class="empty-message" th:if="${estadisticas.isEmpty()}">
+            Aún no hay progresos registrados.
+        </div>
+    </div>
+</main>
+</main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal - TraiNoob</title>
+    <link rel="stylesheet" href="/css/menuEntrenador.css">
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="/logout" class="logo-link" title="Cerrar sesión">
+            <img src="/media/logo.png" alt="TraiNoob logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a th:href="@{/logout}">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="menu-container">
+        <h2>Menú Principal</h2>
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <h3>Gestión de Entrenamientos</h3>
+                <ul>
+                    <li><a th:href="@{/entrenador/crear-entrenamiento}">Crear Entrenamiento</a></li>
+                    <li><a th:href="@{/entrenador/entrenamientos}">Ver Entrenamientos</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Gestión de Ejercicios</h3>
+                <ul>
+                    <li><a th:href="@{/entrenador/crear-ejercicio}">Crear nuevo ejercicio</a></li>
+                    <li><a th:href="@{/entrenador/biblioteca-ejercicios}">Ver Biblioteca de Ejercicios</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-item">
+                <h3>Gestión de Jugadores</h3>
+                <ul>
+                    <li><a th:href="@{/evolucion}">Ver Estadísticas de Jugadores</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 TraiNoob | Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

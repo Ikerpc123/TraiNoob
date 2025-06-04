@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca de Ejercicios</title>
+    <link rel="stylesheet" href="/css/biblioteca.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Biblioteca de Ejercicios</h1>
+        <a href="/menuEntrenador">Volver al Menú</a>
+    </div>
+</header>
+
+<main>
+<br>
+	<div th:if="${param.success}" class="alert-success">
+	    Ejercicio creado correctamente.
+	</div>
+    <div class="grid-container">
+        <div class="card" th:each="ej : ${ejercicios}">
+            <div class="image-wrapper">
+                <img th:src="@{${ej.imagenUrl}}" alt="Imagen del ejercicio"
+                     th:onclick="'abrirModal(' + '\'' + @{${ej.imagenUrl}} + '\'' + ')'"/>
+            </div>
+            <div class="card-content">
+                <h2 th:text="${ej.nombre}"></h2>
+                <p th:text="${ej.descripcion}"></p>
+                <p><strong>Duración:</strong> <span th:text="${ej.duracion} + ' min'"></span></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="modalImagen" class="modal" onclick="cerrarModal()">
+    <span class="cerrar">&times;</span>
+    <img class="modal-contenido" id="imgAmpliada">
+</div>
+
+<script>
+    function abrirModal(src) {
+        const modal = document.getElementById("modalImagen");
+        const img = document.getElementById("imgAmpliada");
+        img.src = src;
+        modal.style.display = "block";
+    }
+
+    function cerrarModal() {
+        document.getElementById("modalImagen").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

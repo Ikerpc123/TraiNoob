@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Entrenador - TraiNoob</title>
+    <link rel="stylesheet" href="/css/registroEntrenador.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>TraiNoob</h1>
+        <nav>
+            <ul>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="form-container">
+        <h2>Registro de Nuevo Entrenador</h2>
+        <form action="/registroEntrenador" method="post">
+            <div class="form-group">
+			    <label for="nombre">Nombre de Usuario</label>
+			    <input type="text" id="nombre" name="nombre" required>
+			</div>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input id="password" name="password" required>
+            </div>
+            <div th:if="${error}" class="alert-error">
+			    <p th:text="${error}"></p>
+			</div>
+			<br>
+            <div class="form-group">
+                <button type="submit">Registrar Entrenador</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 TraiNoob | Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

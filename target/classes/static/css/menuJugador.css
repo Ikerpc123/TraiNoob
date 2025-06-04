@@ -1,0 +1,95 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f4f7fa;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header-container {
+    background-color: #0a2e57;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-button {
+    background-color: #f9a826;
+    color: #0a2e57;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #f7c64d;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 40px;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+section h2 {
+    margin-bottom: 10px;
+    color: #0a2e57;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #f9a826;
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+/* Perfil */
+ul {
+    list-style: none;
+    font-size: 1rem;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #0a2e57;
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f9fbfd;
+}
+
+.empty {
+    color: gray;
+    font-style: italic;
+    margin-top: 15px;
+}

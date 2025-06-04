@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f4f7fa;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #0a2e57;
+    color: white;
+    padding: 20px;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.6rem;
+}
+
+.back-button {
+    background-color: #f9a826;
+    color: #0a2e57;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #f7c64d;
+}
+
+.perfil-card {
+    background-color: white;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.perfil-card h2 {
+    color: #0a2e57;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.perfil-card hr {
+    border: none;
+    height: 2px;
+    background-color: #f9a826;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.perfil-lista {
+    list-style: none;
+    font-size: 1rem;
+}
+
+.perfil-lista li {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.perfil-lista strong {
+    color: #0a2e57;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Progreso</title>
+    <link rel="stylesheet" href="/css/progreso.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>Mi Historial de Progreso</h1>
+        <a href="/menuJugador" class="back-button">Volver</a>
+    </div>
+</header>
+
+<main>
+    <div class="content">
+
+        <table th:if="${not #lists.isEmpty(progresos)}">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Entrenamiento</th>
+                    <th>Puntuación</th>
+                    <th>Comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${progresos}">
+                    <td data-label="Fecha" th:text="${#dates.format(p.entrenamiento.fecha, 'dd/MM/yyyy')}"></td>
+                    <td data-label="Entrenamiento" th:text="${p.entrenamiento.nombre}"></td>
+                    <td data-label="Puntuación" th:text="${p.puntuacion}"></td>
+                    <td data-label="Comentario" th:text="${p.comentario}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="empty-message" th:if="${progresos.isEmpty()}">
+            ¡Aún no tienes progresos registrados!
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

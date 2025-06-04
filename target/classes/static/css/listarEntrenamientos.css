@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f4f7fa;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #0a2e57;
+    color: white;
+    padding: 20px 0;
+}
+
+header .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.6rem;
+}
+
+header a {
+    background-color: #f9a826;
+    color: #0a2e57;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+header a:hover {
+    background-color: #f7c64d;
+}
+
+main {
+    flex-grow: 1;
+    padding: 40px 20px;
+}
+
+.content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #0a2e57;
+    color: white;
+    text-align: left;
+}
+
+th, td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: #f9fbfd;
+}
+
+td.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-btn {
+    background-color: #0a2e57;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #083260;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.content p {
+    font-size: 1.2rem;
+    color: gray;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: white;
+    }
+
+    td {
+        padding: 10px;
+        position: relative;
+        text-align: left;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #0a2e57;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    td.actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.alert-success {
+    background-color: #d1e7dd;
+    border-left: 5px solid #198754;
+    color: #0f5132;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+}

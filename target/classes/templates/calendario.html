@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Entrenamientos Asignados</title>
+    <link rel="stylesheet" href="/css/calendario.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>Mis Entrenamientos</h1>
+        <a href="/menuJugador" class="back-button">← Volver</a>
+    </div>
+</header>
+
+<main>
+    <div class="content">
+
+        <table th:if="${not #lists.isEmpty(entrenamientos)}">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ent : ${entrenamientos}">
+                    <td data-label="Fecha" th:text="${#dates.format(ent.fecha, 'dd/MM/yyyy')}"></td>
+                    <td data-label="Nombre" th:text="${ent.nombre}"></td>
+                    <td data-label="Descripción" th:text="${ent.descripcion}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="empty-message" th:if="${entrenamientos.isEmpty()}">
+            ¡No tienes entrenamientos asignados todavía!
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>

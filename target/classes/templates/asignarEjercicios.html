@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignar Ejercicios</title>
+    <link rel="stylesheet" href="/css/asignarEjercicios.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1>Asignar ejercicios a: <span th:text="${entrenamiento.nombre}"></span></h1>
+        <a href="/entrenador/entrenamientos" class="back-button">Volver</a>
+    </div>
+</header>
+
+<main>
+    <div class="form-container">
+        <form th:action="@{/entrenador/asignar-ejercicios}" method="post">
+            <input type="hidden" name="entrenamientoId" th:value="${entrenamiento.id}">
+
+            <div class="form-group">
+                <label>Selecciona ejercicios:</label>
+                <div th:each="e : ${ejercicios}">
+                    <input type="checkbox" name="ejercicioIds" th:value="${e.id}" id="e__${e.id}">
+                    <label th:for="'e__' + ${e.id}" th:text="${e.nombre}"></label><br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Asignar Ejercicios</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
